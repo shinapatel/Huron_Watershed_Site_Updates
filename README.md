@@ -1,6 +1,6 @@
 <h4>Overview</h4>
 <p>
-  Filtering Green Infrastructure (GI) Sensors in the Huron River Watershed Area
+  Filtering Water Depth Sensors in the Huron River Watershed Area
 </p>
 
 <h4>Background</h4>
