@@ -19,4 +19,14 @@ shapely.geometry
 matplotlib.pyplot
 ```
 
+<h4>Filtration Methods</h4>
+
+<h5>Initial Filtering of Sensors</h5>
+<p>
+  Sensor data is initially inputted in the form of a csv file and converted to a pandas dataframe (df). 
+  Then, all NaN "Latitude, Longitude" pairs and non-water depth sensors are removed.
+  
+</p>
+
+<h5>Initial Filtering of Sensors</h5>
 
