@@ -22,38 +22,31 @@ matplotlib.pyplot
 <p>
   Sensor data is initially inputted in the form of a csv file and converted to a pandas dataframe (df).
   Then, all NaN "Latitude, Longitude" pairs and non-water depth sensors are removed.
-  
-  https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_initial_plot.png
-
-  https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/final_sensor_filtration_plot.png
-
-  https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_area.png
 
   Below represents the Huron River Watershed, Huron River System, and water depth sensors plotted atop the same plot prior to any form of water depth sensor filtration occuring.
+
   ![Huron Watershed Initial Plot](https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_prior_filtration.png)
 
   In order to remove water depth sensors located outside of the Huron River Watershed, shapely.geometry is used to store the Huron River Watershed as a polygon and to create Point objects of sensor coordinate pair.
+
   ![Huron Watershed Sensors Filtration](https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_river_watershed_sensors.png)
 
   ```
   sensors_geometry = [Point(xy) for xy in zip(sensors_df.lon, sensors_df.lat)]
   sensors_gdf = gpd.GeoDataFrame(sensors_df, crs='EPSG:4326', geometry=sensors_geometry)
-
   huron_watershed_polygon = shape(watershed_gdf.geometry.iloc[0])
-
   sensors_within_watershed = sensors_gdf[sensors_gdf.geometry.apply(lambda x: x.intersects(huron_watershed_polygon))]
   ```
 
   In order to remove water depth sensors located far away from the Huron River System, shapely.geometry is used to develop a buffer surrounding the Huron River which demonstrates the margin of acceptable distance between a sensor location and the river.
+
   ![Huron River Sensors Filtration](https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/final_sensor_filtration_plot.png)
 
   ```
   sensors_geometry = [Point(xy) for xy in zip(sensors_df.lon, sensors_df.lat)]
   sensors_gdf = gpd.GeoDataFrame(sensors_df, crs='EPSG:4326', geometry=sensors_geometry)
-
   buffer_distance = 0.01
   river_gdf['geometry'] = river_gdf.geometry.buffer(buffer_distance)
-
   sensors_near_river = gpd.sjoin(sensors_gdf, river_gdf, how='inner', predicate='intersects')
   ```
 </p>
