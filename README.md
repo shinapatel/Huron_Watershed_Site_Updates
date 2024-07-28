@@ -23,12 +23,6 @@
   Sensor data is initially inputted in the form of a csv file and converted to a pandas dataframe (df).
   Then, all NaN "Latitude, Longitude" pairs and non-water depth sensors are removed.
 
-  Below represents the Huron River Watershed, Huron River System, and water depth sensors plotted atop the same plot prior to any form of water depth sensor filtration occuring.
-
-  <p align="center">
-    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_prior_filtration.png" width=325px>
-  </p>
-
   In order to remove water depth sensors located outside of the Huron River Watershed, shapely.geometry is used to store the Huron River Watershed as a polygon and to create Point objects of sensor coordinate pair.
 
   <p align="center">
