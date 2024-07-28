@@ -26,12 +26,14 @@
   Below represents the Huron River Watershed, Huron River System, and water depth sensors plotted atop the same plot prior to any form of water depth sensor filtration occuring.
 
   <p align="center">
-    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_prior_filtration.png" width=600px>
+    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_prior_filtration.png" width=150px>
   </p>
 
   In order to remove water depth sensors located outside of the Huron River Watershed, shapely.geometry is used to store the Huron River Watershed as a polygon and to create Point objects of sensor coordinate pair.
 
-  ![Huron Watershed Sensors Filtration](https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_river_watershed_sensors.png)
+  <p align="center">
+    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_river_watershed_sensors.png" width=150px>
+  </p>
 
   ```
   sensors_geometry = [Point(xy) for xy in zip(sensors_df.lon, sensors_df.lat)]
@@ -42,7 +44,9 @@
 
   In order to remove water depth sensors located far away from the Huron River System, shapely.geometry is used to develop a buffer surrounding the Huron River which demonstrates the margin of acceptable distance between a sensor location and the river.
 
-  ![Huron River Sensors Filtration](https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/final_sensor_filtration_plot.png)
+  <p align="center">
+    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/final_sensor_filtration_plot.png" width=150px>
+  </p>
 
   ```
   sensors_geometry = [Point(xy) for xy in zip(sensors_df.lon, sensors_df.lat)]
