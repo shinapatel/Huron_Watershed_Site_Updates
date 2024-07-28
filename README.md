@@ -11,12 +11,12 @@
 </p>
 
 <h4>Necessary libraries</h4>
-```
-pandas
-geopandas
-shapely.geometry
-matplotlib.pyplot
-```
+  ```
+  pandas
+  geopandas
+  shapely.geometry
+  matplotlib.pyplot
+  ```
 
 <h4>Water Depth Sensor Filtration</h4>
 <p>
@@ -25,7 +25,9 @@ matplotlib.pyplot
 
   Below represents the Huron River Watershed, Huron River System, and water depth sensors plotted atop the same plot prior to any form of water depth sensor filtration occuring.
 
-  ![Huron Watershed Initial Plot](https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_prior_filtration.png)
+  <p align="center">
+    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_prior_filtration.png" width=600px>
+  </p>
 
   In order to remove water depth sensors located outside of the Huron River Watershed, shapely.geometry is used to store the Huron River Watershed as a polygon and to create Point objects of sensor coordinate pair.
 
