@@ -26,7 +26,22 @@ matplotlib.pyplot
   Sensor data is initially inputted in the form of a csv file and converted to a pandas dataframe (df). 
   Then, all NaN "Latitude, Longitude" pairs and non-water depth sensors are removed.
   
+  https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_initial_plot.png
+
+  https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/final_sensor_filtration_plot.png
+
+  https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_area.png
 </p>
 
-<h5>Initial Filtering of Sensors</h5>
+<h5>Filtering of Sensors Based on Huron Watershed Area</h5>
+<p>
+  The first form of sensor filtration was based on the Huron River Watershed area, as seen below.
+  
+  ![Huron Watershed Area](https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_watershed_area.png)
+  
+
+  
+</p>
+
+
 
