@@ -24,23 +24,23 @@
   Sensor data is initially inputted in the form of a csv file and converted to a pandas dataframe (df).
   Then, all NaN "Latitude, Longitude" pairs and non-water depth sensors are removed.
 
-  In order to remove water depth sensors located outside of the Huron River Watershed, shapely.geometry is used to store the Huron River Watershed as a polygon and to create Point objects of sensor coordinate pair.
+  In order to remove water depth sensors located outside of the Huron River Watershed, shapely.geometry is used to store the Huron River Watershed as a polygon and to create Point objects of each sensor coordinate pair. Depending on the location of the Point object, it is either removed or maintained, resulting in the plot below.
 
   <p align="center">
-    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/huron_river_watershed_sensors.png" width=325px>
+    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/plots/huron_river_watershed_sensors.png" width=325px>
   </p>
 
   ```
   sensors_geometry = [Point(xy) for xy in zip(sensors_df.lon, sensors_df.lat)]
-  sensors_gdf = gpd.GeoDataFrame(sensors_df, crs='EPSG:4326', geometry=sensors_geometry)
+  sensors_gdf = gpd.GeoDataFrame(sensors_df, crs=EPSG:4326', geometry=sensors_geometry)
   huron_watershed_polygon = shape(watershed_gdf.geometry.iloc[0])
   sensors_within_watershed = sensors_gdf[sensors_gdf.geometry.apply(lambda x: x.intersects(huron_watershed_polygon))]
   ```
 
-  In order to remove water depth sensors located far away from the Huron River System, shapely.geometry is used to develop a buffer surrounding the Huron River which demonstrates the margin of acceptable distance between a sensor location and the river.
+  In order to remove water depth sensors located within the Huron Watershed but far away from the Huron River System, shapely.geometry is used to develop a buffer surrounding the Huron River to create a margin of acceptable distance between a sensor location and the river. This filtration method results in the plot seen below.
 
   <p align="center">
-    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/final_sensor_filtration_plot.png" width=325px>
+    <img src="https://github.com/shinapatel/Huron_Watershed_Site_Updates/blob/main/plots/final_sensor_filtration_plot.png" width=325px>
   </p>
 
   ```
